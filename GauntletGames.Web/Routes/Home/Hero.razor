@@ -1,0 +1,38 @@
+﻿@using MudBlazor.Utilities
+<!--suppress CssUnresolvedCustomProperty -->
+
+<MudStack Style="@_containerStyle" Class="mb-16" Justify="Justify.Center">
+    <MudText Typo="Typo.h1" Align="Align.Center" Style="color: var(--mud-palette-text-primary)">
+        The Gauntlet Games
+    </MudText>
+
+    <AuthorizeView>
+        <Authorized>
+            <MudText Class="mr-2" Typo="Typo.h3">Welcome, @context.User.Identity.Name</MudText>
+        </Authorized>
+        <NotAuthorized>
+            <MudStack AlignItems="AlignItems.Center">
+                <MudPaper>
+                    <MudButton EndIcon="@Icons.Material.Filled.Login" Size="Size.Large" Variant="Variant.Filled" Href="@LoginUrl">Login</MudButton>
+                </MudPaper>
+            </MudStack>
+        </NotAuthorized>
+    </AuthorizeView>
+</MudStack>
+
+@code {
+
+    private string? _containerStyle;
+        private const string LoginUrl = "/login";
+
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        _containerStyle = new StyleBuilder()
+            .AddStyle("min-height", "60vh")
+            .AddStyle("--mud-palette-text-primary", "white")
+            .Build();
+    }
+
+}

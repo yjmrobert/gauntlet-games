@@ -1,0 +1,68 @@
+﻿@using GauntletGames.Web.Theme
+<!--suppress CssUnresolvedCustomProperty -->
+<MudCard>
+    <MudCardMedia Image="@Game.ImageUrl" Height="300"/>
+    <MudCardContent Class="pa-6">
+        <MudStack Spacing="6">
+            <MudText Typo="Typo.h3" Align="Align.Center">@Game.Name</MudText>
+            <MudSimpleTable Dense Hover Style="@($"--mud-palette-table-hover: {GauntletTheme.DarkActionHover}")">
+                <tbody>
+                <tr>
+                    <td>
+                        Date
+                    </td>
+                    <td>
+                        @Game.GameDateTime.ToLongDateString()
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Time
+                    </td>
+                    <td>
+                        @Game.GameDateTime.ToShortTimeString()
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Location
+                    </td>
+                    <td>
+                        @Game.GameLocation
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Players
+                    </td>
+                    <td>
+                        @Game.Players.Count / @Game.MaxPlayers
+                    </td>
+                </tr>
+                </tbody>
+            </MudSimpleTable>
+            <MudDivider Class="my-2" />
+            @foreach (var note in Game.GameNotes)
+            {
+                <MudText Typo="Typo.body2">
+                    @note.Note
+                </MudText>
+            }
+        </MudStack>
+
+    </MudCardContent>
+    <MudCardActions Class="justify-center pb-12">
+        <MudButton Style="border: 1px solid var(--mud-palette-table-lines);" Variant="Variant.Filled" Size="Size.Large">
+            Sign up
+        </MudButton>
+    </MudCardActions>
+
+</MudCard>
+
+@code {
+
+
+    [Parameter]
+    public Game Game { get; set; }
+
+}

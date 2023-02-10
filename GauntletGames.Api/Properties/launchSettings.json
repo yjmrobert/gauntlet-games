@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "GauntletGames.Api": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7201",
+      "launchBrowser": false
+    }
+  }
+}

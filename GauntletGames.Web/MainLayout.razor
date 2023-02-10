@@ -1,0 +1,50 @@
+﻿@using GauntletGames.Web.Theme
+@using MudBlazor.Utilities
+@inherits LayoutComponentBase
+
+
+<MudThemeProvider Theme="GauntletTheme.Theme" IsDarkMode="true"/>
+<MudDialogProvider/>
+<MudSnackbarProvider/>
+
+<MudLayout>
+    <MudAppBar Elevation="1">
+        <MudButton Href="/" Class="ml-3">The Gauntlet Games</MudButton>
+        <MudSpacer/>
+        <AuthorizeView>
+            <Authorized>
+                <MudText Class="mr-2" Typo="Typo.body2">Hello, @context.User.Identity.Name</MudText>
+                <MudButton EndIcon="@Icons.Material.Filled.Logout" Href="@LogoutUrl">Log out</MudButton>
+            </Authorized>
+            <NotAuthorized>
+                <MudButton EndIcon="@Icons.Material.Filled.Login" Href="@LoginUrl">Log in</MudButton>
+            </NotAuthorized>
+        </AuthorizeView>
+    </MudAppBar>
+    <MudMainContent Style="@_backgroundStyle">
+        @Body
+        <MainFooter/>
+    </MudMainContent>
+</MudLayout>
+
+@code {
+
+    private string? _backgroundStyle;
+    private const string LogoutUrl = "/.auth/logout?post_logout_redirect_uri=/";
+    private const string LoginUrl = "/login";
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        _backgroundStyle = new StyleBuilder()
+            .AddStyle("background-image", "linear-gradient(135deg, rgba(0,0,0,1) 4%, rgba(0,0,0,0.125) 100%), url('/images/bg.png')")
+            .AddStyle("background-size", "cover")
+            .AddStyle("background-position", "center")
+            .AddStyle("background-repeat", "no-repeat")
+            .AddStyle("background-attachment", "fixed")
+            .AddStyle("background-color", "black")
+            .Build();
+    }
+
+}

@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GauntletGames.Web", "GauntletGames.Web\GauntletGames.Web.csproj", "{F58898A4-FEB0-47C4-A288-6162A11D9066}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GauntletGames.Api", "GauntletGames.Api\GauntletGames.Api.csproj", "{BA38F09C-19B8-4090-851A-0B98D27F6E0C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GauntletGames.Domain", "GauntletGames.Domain\GauntletGames.Domain.csproj", "{CE8B58E6-76AD-4AC0-B022-84C1140D6CFD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F58898A4-FEB0-47C4-A288-6162A11D9066}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F58898A4-FEB0-47C4-A288-6162A11D9066}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F58898A4-FEB0-47C4-A288-6162A11D9066}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F58898A4-FEB0-47C4-A288-6162A11D9066}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA38F09C-19B8-4090-851A-0B98D27F6E0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA38F09C-19B8-4090-851A-0B98D27F6E0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA38F09C-19B8-4090-851A-0B98D27F6E0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA38F09C-19B8-4090-851A-0B98D27F6E0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE8B58E6-76AD-4AC0-B022-84C1140D6CFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE8B58E6-76AD-4AC0-B022-84C1140D6CFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE8B58E6-76AD-4AC0-B022-84C1140D6CFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE8B58E6-76AD-4AC0-B022-84C1140D6CFD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

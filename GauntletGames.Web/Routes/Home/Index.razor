@@ -1,0 +1,45 @@
+﻿@page "/"
+@using System.Text.Json.Nodes
+@using System.Text.Json
+
+@inject HttpClient _httpClient
+
+<Hero/>
+
+<MudContainer Class="mt-16">
+    <MudText Typo="Typo.h2" Align="Align.Center" GutterBottom="true">Upcoming Games</MudText>
+    <MudText Align="Align.Center">
+        Here is a list of the upcoming games with their details and availability. You will need to login in order to sign up for a game.
+    </MudText>
+    <MudGrid Class="mt-8">
+        @if (_games != null)
+        {
+            @foreach (var game in _games)
+            {
+                <MudItem xs="12" sm="6" md="4">
+                    <GameSignup Game="@game"/>
+                </MudItem>
+            }
+        }
+    </MudGrid>
+</MudContainer>
+
+
+@code {
+    private List<Game>? _games;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+        var result = await _httpClient.GetStringAsync("/api/GetGames");
+        var json = JsonSerializer.Deserialize<JsonObject>(result);
+
+        var games = json!["Result"];
+        _games = games.Deserialize<List<Game>>();
+        Console.Write("Here");
+        Console.Write(_games);
+        StateHasChanged();
+    }
+
+
+}

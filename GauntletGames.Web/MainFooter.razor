@@ -1,0 +1,40 @@
+﻿<MudPaper Class="pa-16 mt-16">
+    <MudContainer MaxWidth="MaxWidth.Large">
+        <MudGrid>
+            <MudItem md="2" />
+            <MudItem xs="12" md="4">
+                <MudStack>
+                    <MudText Typo="Typo.h3">BGG Games</MudText>
+                    @foreach (var game in _games)
+                    {
+                        <MudElement>
+                            <MudLink Href="@game.BggHref">@game.Label</MudLink>
+                        </MudElement>
+                    }
+                </MudStack>
+            </MudItem>
+            <MudItem xs="12" md="4">
+                <MudStack>
+                    <MudText Typo="Typo.h3">House Rules</MudText>
+                    @foreach (var game in _games)
+                    {
+                        <MudElement>
+                            <MudLink Href="@($"/house-rules/{game.HouseRulesHref}")">@game.Label</MudLink>
+                        </MudElement>
+                    }
+                </MudStack>
+            </MudItem>
+        </MudGrid>
+    </MudContainer>
+</MudPaper>
+
+@code {
+
+    private readonly List<(string Label, string BggHref, string HouseRulesHref)> _games = new()
+    {
+        ("Twilight Imperium", "https://boardgamegeek.com/boardgame/233078/twilight-imperium-fourth-edition", "twilight-imperium"),
+        ("Scythe", "https://boardgamegeek.com/boardgame/169786/scythe", "scythe"),
+        ("Eclipse", "https://boardgamegeek.com/boardgame/72125/eclipse", "eclipse"),
+    };
+
+}
