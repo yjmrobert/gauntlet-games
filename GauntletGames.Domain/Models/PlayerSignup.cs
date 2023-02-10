@@ -3,15 +3,13 @@ using Azure.Data.Tables;
 
 namespace GauntletGames.Domain.Models;
 
-public class Player : ITableEntity
+public class PlayerSignup : ITableEntity
 {
-    public string PartitionKey { get; set; } = "players";
+    public string PartitionKey { get; set; } = "player-signups";
     public string RowKey { get; set; } = Guid.NewGuid().ToString();
     public DateTimeOffset? Timestamp { get; set; }
     public ETag ETag { get; set; }
     
-    public string Name { get; set; } = null!;
-    
-    public List<Game> Games { get; set; } = null!;
-
+    public string PlayerRowKey { get; set; } = null!;
+    public string GameRowKey { get; set; } = null!;
 }

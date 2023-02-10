@@ -55,7 +55,7 @@
     <MudCardActions Class="justify-center pb-12">
         <AuthorizeView>
             <Authorized>
-                <MudButton Style="border: 1px solid var(--mud-palette-table-lines);" Variant="Variant.Filled" Size="Size.Large">
+                <MudButton OnClick="HandlePlayerSignupRequest" Style="border: 1px solid var(--mud-palette-table-lines);" Variant="Variant.Filled" Size="Size.Large">
                     Sign up
                 </MudButton>
             </Authorized>
@@ -74,5 +74,17 @@
 
     [Parameter]
     public Game Game { get; set; }
+    
+    private void HandlePlayerSignupRequest()
+    {
+        
+        
+        
+        var playerSignup = new PlayerSignup
+        {
+             
+        };
+        
+    }
 
 }
