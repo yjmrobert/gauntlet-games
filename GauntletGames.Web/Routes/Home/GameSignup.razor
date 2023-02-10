@@ -1,5 +1,6 @@
 ﻿@using GauntletGames.Web.Theme
 <!--suppress CssUnresolvedCustomProperty -->
+
 <MudCard>
     <MudCardMedia Image="@Game.ImageUrl" Height="300"/>
     <MudCardContent Class="pa-6">
@@ -41,7 +42,7 @@
                 </tr>
                 </tbody>
             </MudSimpleTable>
-            <MudDivider Class="my-2" />
+            <MudDivider Class="my-2"/>
             @foreach (var note in Game.GameNotes)
             {
                 <MudText Typo="Typo.body2">
@@ -52,9 +53,18 @@
 
     </MudCardContent>
     <MudCardActions Class="justify-center pb-12">
-        <MudButton Style="border: 1px solid var(--mud-palette-table-lines);" Variant="Variant.Filled" Size="Size.Large">
-            Sign up
-        </MudButton>
+        <AuthorizeView>
+            <Authorized>
+                <MudButton Style="border: 1px solid var(--mud-palette-table-lines);" Variant="Variant.Filled" Size="Size.Large">
+                    Sign up
+                </MudButton>
+            </Authorized>
+            <NotAuthorized>
+                <MudButton EndIcon="@Icons.Material.Filled.Login" Style="border: 1px solid var(--mud-palette-table-lines);" Variant="Variant.Filled" Size="Size.Large">
+                    Login to sign up
+                </MudButton>
+            </NotAuthorized>
+        </AuthorizeView>
     </MudCardActions>
 
 </MudCard>

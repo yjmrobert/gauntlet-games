@@ -8,7 +8,9 @@
 
     <AuthorizeView>
         <Authorized>
-            <MudText Class="mr-2" Typo="Typo.h3">Welcome, @context.User.Identity.Name</MudText>
+            <MudStack AlignItems="AlignItems.Center">
+                <MudText Class="mr-2" Typo="Typo.h3">Welcome, @context.User.Identity.Name</MudText>
+            </MudStack>
         </Authorized>
         <NotAuthorized>
             <MudStack AlignItems="AlignItems.Center">
@@ -23,7 +25,7 @@
 @code {
 
     private string? _containerStyle;
-        private const string LoginUrl = "/login";
+    private const string LoginUrl = "/login";
 
 
     protected override void OnInitialized()

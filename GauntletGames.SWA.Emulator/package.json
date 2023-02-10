@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "swa start http://localhost:5197"
+    "start": "swa start http://localhost:5054"
   },
   "author": "",
   "license": "ISC",
